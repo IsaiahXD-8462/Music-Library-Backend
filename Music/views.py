@@ -20,8 +20,8 @@ def music_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])   
 def music_detail(request, pk):
-    music = get_object_or_404(music, pk=pk)
-    if request.method =='GET':
+    music = get_object_or_404(Music, pk=pk)
+    if request.method == 'GET':
         serializer = MusicSerializer(music);
         return Response(serializer.data)
     elif request.method == 'PUT':
